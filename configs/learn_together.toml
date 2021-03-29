@@ -1,0 +1,28 @@
+LogPath = "logs/leran.log"
+HideBanner = false
+
+[Server]
+Addr = "127.0.0.1:8080"
+ReadTimeout = 900 #15分钟
+WriteTimeout = 900
+
+[Auth]
+AuthAddr = "127.0.0.1:2379"
+AuthServiceName = "auth_service"
+ModelPath = "configs/rbac_model.conf"
+PolicyPath = "configs/rbac_policy.csv"
+IsLoadPolicy = true  #是否清空数据库 然后假加载上面的策略
+Driver = "mysql"
+Connection = "root:123456@tcp(127.0.0.1:3306)/"
+DbSpecified = false
+
+[Mysql]
+Connection = "root:123456@tcp(127.0.0.1:3306)/"
+
+[Redis]
+Addr = "localhost:6379"
+PWD = ""
+DB = 0
+
+
+

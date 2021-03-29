@@ -1,0 +1,6 @@
+{
+  "driver": "mysql",
+  "connection": "root:123456@tcp(127.0.0.1:3306)",
+  "ModelPath": "configs/rbac_policy.csv",
+  "dbSpecified" : true
+}
