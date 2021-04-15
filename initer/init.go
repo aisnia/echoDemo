@@ -1,4 +1,4 @@
-package init
+package initer
 
 import (
 	"github.com/spf13/viper"
@@ -27,6 +27,7 @@ type Config struct {
 	Auth       AuthConfig   //Auth 服务
 	Mysql      MysqlConfig
 	Redis      RedisConfig
+	Email      EmailConfig  //邮件服务
 }
 type ServerConfig struct {
 	Addr         string //监听的socket地址端口
@@ -50,4 +51,12 @@ type RedisConfig struct {
 }
 type MysqlConfig struct {
 	Connection string
+}
+
+type EmailConfig struct {
+	Addr     string // smtp.qq.com:25  服务器地址
+	Username string // 用来发送邮件的用户
+	Password string //对应的授权码
+	Host     string //域名 用来安全认证
+	PoolSize int    //Email连接池的个数
 }

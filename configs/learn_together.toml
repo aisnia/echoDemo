@@ -17,12 +17,22 @@ Connection = "root:123456@tcp(127.0.0.1:3306)/"
 DbSpecified = false
 
 [Mysql]
-Connection = "root:123456@tcp(127.0.0.1:3306)/"
+Connection = "root:123456@tcp(localhost:3306)/learn"
 
 [Redis]
 Addr = "localhost:6379"
 PWD = ""
 DB = 0
+
+
+[Email]
+Addr = "smtp.qq.com:25"
+Username = "1350017101@qq.com"
+Password = "kvrabzhbeirpfijc"
+Host = "smtp.qq.com"
+PoolSize = 4
+
+
 
 
 

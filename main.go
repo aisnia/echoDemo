@@ -8,30 +8,27 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"io"
 	"learn_together/commons"
-	"learn_together/init"
-	"learn_together/mymiddleware/casbinmiddleware"
+	"learn_together/controllers"
+	"learn_together/initer"
 	myjwt "learn_together/mymiddleware/jwt"
-	"learn_together/service/auth"
+	"learn_together/service/cache"
 	"learn_together/service/db"
+	"learn_together/service/email"
 	"net/http"
 	"os"
 	"time"
 )
 
 var (
-	config   init.Config
+	config   initer.Config
 	confPath = flag.String("c", "configs/learn_together.toml", "specify the configuration file, default is configs/learn_together.toml")
 	logFile  io.Writer
 )
 
 func main() {
 	//加载配置
-	config = init.LoadConfig(*confPath)
-	//1. echo 初始化
-	db.InitXorm(&config)
-	e := echo.New()
+	config = initer.LoadConfig(*confPath)
 
-	//1.1日志
 	//logFile, err := os.OpenFile(config.LogPath, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
 	//if err != nil {
 	//	panic(err.Error())
@@ -40,6 +37,11 @@ func main() {
 
 	logFile = os.Stdout
 
+	Init()
+	//1. echo 初始化
+	e := echo.New()
+
+	//1.1日志
 	e.Logger.SetOutput(logFile)
 	//日志格式
 	e.Logger.SetHeader("${time_rfc3339} ${level}")
@@ -55,12 +57,23 @@ func main() {
 	//1.4 是否有横幅
 	e.HideBanner = false
 	//1.5 中间件
-	Init(e)
+	InitMiddleware(e)
 
 	e.Logger.Fatal(e.StartServer(s))
 
 }
-func Init(e *echo.Echo) {
+
+func Init() {
+	//xorm
+	db.InitXorm(&config)
+	//redis
+	cache.InitRedis(&config)
+	//email
+	email.InitEmial(&config, logFile)
+
+}
+
+func InitMiddleware(e *echo.Echo) {
 	//1、恢复
 	e.Use(middleware.Recover())
 	//2、请求ID
@@ -79,20 +92,25 @@ func Init(e *echo.Echo) {
 		Claims:      &JwtCustomClaims{},
 		TokenLookup: "form:token",
 		SuccessHandler: func(c echo.Context) {
-			
+
 		},
 	})
 
 	route := e.Group("/learn", jwtMiddleware)
-	route.GET("/hello", func(c echo.Context) error {
+	route.GET("/sendCode", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, "hello world")
 	})
+
+	e.POST("/sendCode", controllers.SendEmailCode)
+	e.POST("/register", controllers.Register)
+	//e.GET("/sendCode", controllers.SendEmailCode)
+
 	//6、auth 权限校验 用的auth_control的服务
 
-	auth.AuthInit(&config)
-	e.Use(casbinmiddleware.MiddlewareWithConfig(casbinmiddleware.Config{
-		Enforcer: auth.Enforcer,
-	}))
+	//auth.AuthInit(&config)
+	//e.Use(casbinmiddleware.MiddlewareWithConfig(casbinmiddleware.Config{
+	//	Enforcer: auth.Enforcer,
+	//}))
 
 }
 

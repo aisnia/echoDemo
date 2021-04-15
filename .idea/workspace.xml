@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="999c209c-d797-4672-9532-9535c01fb70e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/learn_together.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/bean/bean.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/bean.go" beforeDir="false" afterPath="$PROJECT_DIR$/commons/bean.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/learn_together.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/learn_together.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/initer/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/auth/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/auth/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/cache/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/cache/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/db/xorm.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/db/xorm.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +72,7 @@
       <recent name="D:\goland_workspace\learn_together\mymiddleware\xormadapter" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestInit in learn_together (2)">
+  <component name="RunManager" selected="Go Test.Test in learn_together/service/email">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="learn_together" />
       <working_directory value="$PROJECT_DIR$" />
@@ -86,15 +92,15 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestAdapters in learn_together/mymiddleware/xormadapter (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="Test in learn_together/service/email" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="learn_together" />
-      <working_directory value="$PROJECT_DIR$/mymiddleware/xormadapter" />
+      <working_directory value="$PROJECT_DIR$/service/email" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="learn_together/mymiddleware/xormadapter" />
+      <package value="learn_together/service/email" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestAdapters\E$" />
+      <pattern value="^\QTest\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestAuth in learn_together/mymiddleware/casbinmiddleware (1)" type="GoTestRunConfiguration" factoryName="Go Test" nameIsGenerated="true">
@@ -130,15 +136,15 @@
       <pattern value="^\QTestInit\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestInit in learn_together" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRandStringBytesRmndr in learn_together/commons" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="learn_together" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/commons" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="learn_together" />
+      <package value="learn_together/commons" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestInit\E$" />
+      <pattern value="^\QTestRandStringBytesRmndr\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -154,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.Test in learn_together/service/email" />
+        <item itemvalue="Go Test.TestRandStringBytesRmndr in learn_together/commons" />
         <item itemvalue="Go Test.TestInit in learn_together (2)" />
         <item itemvalue="Go Build.go build learn_together" />
         <item itemvalue="Go Test.TestInit in learn_together (1)" />
-        <item itemvalue="Go Test.TestInit in learn_together" />
-        <item itemvalue="Go Test.TestAdapters in learn_together/mymiddleware/xormadapter (2)" />
       </list>
     </recent_temporary>
   </component>

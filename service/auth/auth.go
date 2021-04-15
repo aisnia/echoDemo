@@ -7,14 +7,14 @@ import (
 	"io"
 	"io/ioutil"
 	"learn_together/api/authcontrol"
-	"learn_together/init"
+	"learn_together/initer"
 	"os"
 	"time"
 )
 
 var Enforcer *authcontrol.Enforcer
 
-func AuthInit(config *init.Config) {
+func AuthInit(config *initer.Config) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 	//远程过程调用 创建一个客户端
